@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+- phpMyAdmin XML Dump
+- version 4.7.3
+- https://www.phpmyadmin.net
+-
+- Хост: 127.0.0.1:3306
+- Время создания: Сен 17 2018 г., 22:32
+- Версия сервера: 5.7.19-log
+- Версия PHP: 7.1.7
+-->
+
+<pma_xml_export version="1.0" xmlns:pma="https://www.phpmyadmin.net/some_doc_url/">
+    <!--
+    - Structure schemas
+    -->
+    <pma:structure_schemas>
+        <pma:database name="My_test_db" collation="utf8_general_ci" charset="utf8">
+            <pma:table name="authors">
+                CREATE TABLE `authors` (
+                  `auth_id` int(11) NOT NULL AUTO_INCREMENT,
+                  `name` varchar(255) NOT NULL,
+                  PRIMARY KEY (`auth_id`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+            </pma:table>
+            <pma:table name="books">
+                CREATE TABLE `books` (
+                  `book_id` int(11) NOT NULL AUTO_INCREMENT,
+                  `genre_id` int(255) DEFAULT NULL,
+                  `auth_id` int(255) DEFAULT NULL,
+                  `name` varchar(255) NOT NULL,
+                  `description` text NOT NULL,
+                  `img` varchar(255) NOT NULL,
+                  `modal` int(3) NOT NULL,
+                  PRIMARY KEY (`book_id`),
+                  KEY `genre_id` (`genre_id`),
+                  KEY `auth_id` (`auth_id`),
+                  CONSTRAINT `books_ibfk_1` FOREIGN KEY (`genre_id`) REFERENCES `genre` (`genre_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+                  CONSTRAINT `books_ibfk_2` FOREIGN KEY (`auth_id`) REFERENCES `authors` (`auth_id`) ON DELETE CASCADE ON UPDATE CASCADE
+                ) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
+            </pma:table>
+            <pma:table name="genre">
+                CREATE TABLE `genre` (
+                  `genre_id` int(11) NOT NULL AUTO_INCREMENT,
+                  `name` varchar(255) DEFAULT NULL,
+                  PRIMARY KEY (`genre_id`)
+                ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+            </pma:table>
+        </pma:database>
+    </pma:structure_schemas>
+
+    <!--
+    - База данных: 'My_test_db'
+    -->
+    <database name="My_test_db">
+        <!-- Таблица authors -->
+        <table name="authors">
+            <column name="auth_id">1</column>
+            <column name="name">Jim Sizemore</column>
+        </table>
+        <table name="authors">
+            <column name="auth_id">2</column>
+            <column name="name">Peter I. Kattan</column>
+        </table>
+        <table name="authors">
+            <column name="auth_id">3</column>
+            <column name="name">Janet Valade</column>
+        </table>
+        <table name="authors">
+            <column name="auth_id">4</column>
+            <column name="name">Emily Vander Veer</column>
+        </table>
+        <table name="authors">
+            <column name="auth_id">5</column>
+            <column name="name">Lynn Beighely</column>
+        </table>
+        <table name="authors">
+            <column name="auth_id">6</column>
+            <column name="name">Rayan Benedetti</column>
+        </table>
+        <table name="authors">
+            <column name="auth_id">7</column>
+            <column name="name">Elisabet Robson</column>
+        </table>
+        <table name="authors">
+            <column name="auth_id">8</column>
+            <column name="name">Carol Tarvis</column>
+        </table>
+        <table name="authors">
+            <column name="auth_id">9</column>
+            <column name="name">Carol S. Dwek</column>
+        </table>
+        <table name="authors">
+            <column name="auth_id">10</column>
+            <column name="name">Shown Achor</column>
+        </table>
+        <table name="authors">
+            <column name="auth_id">11</column>
+            <column name="name">Jhon S. Weeks</column>
+        </table>
+        <table name="authors">
+            <column name="auth_id">12</column>
+            <column name="name">Robert W.D. Ball</column>
+        </table>
+        <table name="authors">
+            <column name="auth_id">13</column>
+            <column name="name">Peter Buer</column>
+        </table>
+        <table name="authors">
+            <column name="auth_id">14</column>
+            <column name="name">George Umura</column>
+        </table>
+        <table name="authors">
+            <column name="auth_id">15</column>
+            <column name="name">Alan Balfe</column>
+        </table>
+        <table name="authors">
+            <column name="auth_id">16</column>
+            <column name="name">Stephen King</column>
+        </table>
+        <table name="authors">
+            <column name="auth_id">17</column>
+            <column name="name">Robert Harris</column>
+        </table>
+        <table name="authors">
+            <column name="auth_id">18</column>
+            <column name="name">Michael Shaara</column>
+        </table>
+        <table name="authors">
+            <column name="auth_id">19</column>
+            <column name="name">Brett McLaughlin</column>
+        </table>
+        <!-- Таблица books -->
+        <table name="books">
+            <column name="book_id">1</column>
+            <column name="genre_id">2</column>
+            <column name="auth_id">1</column>
+            <column name="name">Matlab for dummies</column>
+            <column name="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam feugiat scelerisque urna, vitae faucibus eros lobortis non. Fusce viverra quam ante, sit amet laoreet lacus volutpat quis. Ut eleifend massa vel dui efficitur placerat. Cras nec tortor sit amet urna auctor consequat. Suspendisse vehicula dignissim felis, vel sollicitudin erat feugiat et. Pellentesque et lectus vel risus tincidunt porta. Cras pulvinar augue finibus sagittis porttitor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut ut nisi suscipit, consectetur nunc eu, auctor sem. Aliquam ac mi et metus vestibulum pretium sit amet cursus dolor. Nam vitae interdum metus. Integer vitae imperdiet ex, vitae porta dui. Praesent vehicula imperdiet orci sit amet semper.</column>
+            <column name="img">Matlab_for_dummies.jpg</column>
+            <column name="modal">1</column>
+        </table>
+        <table name="books">
+            <column name="book_id">2</column>
+            <column name="genre_id">2</column>
+            <column name="auth_id">2</column>
+            <column name="name">Matlab for beginers</column>
+            <column name="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam feugiat scelerisque urna, vitae faucibus eros lobortis non. Fusce viverra quam ante, sit amet laoreet lacus volutpat quis. Ut eleifend massa vel dui efficitur placerat. Cras nec tortor sit amet urna auctor consequat. Suspendisse vehicula dignissim felis, vel sollicitudin erat feugiat et. Pellentesque et lectus vel risus tincidunt porta. Cras pulvinar augue finibus sagittis porttitor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut ut nisi suscipit, consectetur nunc eu, auctor sem. Aliquam ac mi et metus vestibulum pretium sit amet cursus dolor. Nam vitae interdum metus. Integer vitae imperdiet ex, vitae porta dui. Praesent vehicula imperdiet orci sit amet semper.</column>
+            <column name="img">Matlab_for_beginers.jpg</column>
+            <column name="modal">2</column>
+        </table>
+        <table name="books">
+            <column name="book_id">3</column>
+            <column name="genre_id">1</column>
+            <column name="auth_id">3</column>
+            <column name="name">PHP for dummies</column>
+            <column name="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam feugiat scelerisque urna, vitae faucibus eros lobortis non. Fusce viverra quam ante, sit amet laoreet lacus volutpat quis. Ut eleifend massa vel dui efficitur placerat. Cras nec tortor sit amet urna auctor consequat. Suspendisse vehicula dignissim felis, vel sollicitudin erat feugiat et. Pellentesque et lectus vel risus tincidunt porta. Cras pulvinar augue finibus sagittis porttitor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut ut nisi suscipit, consectetur nunc eu, auctor sem. Aliquam ac mi et metus vestibulum pretium sit amet cursus dolor. Nam vitae interdum metus. Integer vitae imperdiet ex, vitae porta dui. Praesent vehicula imperdiet orci sit amet semper.</column>
+            <column name="img">PHP5_for_dummies.jpg</column>
+            <column name="modal">3</column>
+        </table>
+        <table name="books">
+            <column name="book_id">4</column>
+            <column name="genre_id">1</column>
+            <column name="auth_id">4</column>
+            <column name="name">JS for dummies</column>
+            <column name="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam feugiat scelerisque urna, vitae faucibus eros lobortis non. Fusce viverra quam ante, sit amet laoreet lacus volutpat quis. Ut eleifend massa vel dui efficitur placerat. Cras nec tortor sit amet urna auctor consequat. Suspendisse vehicula dignissim felis, vel sollicitudin erat feugiat et. Pellentesque et lectus vel risus tincidunt porta. Cras pulvinar augue finibus sagittis porttitor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut ut nisi suscipit, consectetur nunc eu, auctor sem. Aliquam ac mi et metus vestibulum pretium sit amet cursus dolor. Nam vitae interdum metus. Integer vitae imperdiet ex, vitae porta dui. Praesent vehicula imperdiet orci sit amet semper.</column>
+            <column name="img">JS_for_dummies.jpg</column>
+            <column name="modal">4</column>
+        </table>
+        <table name="books">
+            <column name="book_id">5</column>
+            <column name="genre_id">1</column>
+            <column name="auth_id">5</column>
+            <column name="name">Head first PHP</column>
+            <column name="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam feugiat scelerisque urna, vitae faucibus eros lobortis non. Fusce viverra quam ante, sit amet laoreet lacus volutpat quis. Ut eleifend massa vel dui efficitur placerat. Cras nec tortor sit amet urna auctor consequat. Suspendisse vehicula dignissim felis, vel sollicitudin erat feugiat et. Pellentesque et lectus vel risus tincidunt porta. Cras pulvinar augue finibus sagittis porttitor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut ut nisi suscipit, consectetur nunc eu, auctor sem. Aliquam ac mi et metus vestibulum pretium sit amet cursus dolor. Nam vitae interdum metus. Integer vitae imperdiet ex, vitae porta dui. Praesent vehicula imperdiet orci sit amet semper.</column>
+            <column name="img">Head_first_PHP.jpg</column>
+            <column name="modal">5</column>
+        </table>
+        <table name="books">
+            <column name="book_id">6</column>
+            <column name="genre_id">1</column>
+            <column name="auth_id">6</column>
+            <column name="name">Head first JQuery</column>
+            <column name="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam feugiat scelerisque urna, vitae faucibus eros lobortis non. Fusce viverra quam ante, sit amet laoreet lacus volutpat quis. Ut eleifend massa vel dui efficitur placerat. Cras nec tortor sit amet urna auctor consequat. Suspendisse vehicula dignissim felis, vel sollicitudin erat feugiat et. Pellentesque et lectus vel risus tincidunt porta. Cras pulvinar augue finibus sagittis porttitor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut ut nisi suscipit, consectetur nunc eu, auctor sem. Aliquam ac mi et metus vestibulum pretium sit amet cursus dolor. Nam vitae interdum metus. Integer vitae imperdiet ex, vitae porta dui. Praesent vehicula imperdiet orci sit amet semper.</column>
+            <column name="img">Head_First_JQuery.jpg</column>
+            <column name="modal">6</column>
+        </table>
+        <table name="books">
+            <column name="book_id">7</column>
+            <column name="genre_id">1</column>
+            <column name="auth_id">7</column>
+            <column name="name">Head first JS</column>
+            <column name="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam feugiat scelerisque urna, vitae faucibus eros lobortis non. Fusce viverra quam ante, sit amet laoreet lacus volutpat quis. Ut eleifend massa vel dui efficitur placerat. Cras nec tortor sit amet urna auctor consequat. Suspendisse vehicula dignissim felis, vel sollicitudin erat feugiat et. Pellentesque et lectus vel risus tincidunt porta. Cras pulvinar augue finibus sagittis porttitor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut ut nisi suscipit, consectetur nunc eu, auctor sem. Aliquam ac mi et metus vestibulum pretium sit amet cursus dolor. Nam vitae interdum metus. Integer vitae imperdiet ex, vitae porta dui. Praesent vehicula imperdiet orci sit amet semper.</column>
+            <column name="img">Head_First_JS.jpg</column>
+            <column name="modal">7</column>
+        </table>
+        <table name="books">
+            <column name="book_id">8</column>
+            <column name="genre_id">1</column>
+            <column name="auth_id">7</column>
+            <column name="name">Head first HTML CSS</column>
+            <column name="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam feugiat scelerisque urna, vitae faucibus eros lobortis non. Fusce viverra quam ante, sit amet laoreet lacus volutpat quis. Ut eleifend massa vel dui efficitur placerat. Cras nec tortor sit amet urna auctor consequat. Suspendisse vehicula dignissim felis, vel sollicitudin erat feugiat et. Pellentesque et lectus vel risus tincidunt porta. Cras pulvinar augue finibus sagittis porttitor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut ut nisi suscipit, consectetur nunc eu, auctor sem. Aliquam ac mi et metus vestibulum pretium sit amet cursus dolor. Nam vitae interdum metus. Integer vitae imperdiet ex, vitae porta dui. Praesent vehicula imperdiet orci sit amet semper.</column>
+            <column name="img">Head_First_HTML.jpg</column>
+            <column name="modal">8</column>
+        </table>
+        <table name="books">
+            <column name="book_id">9</column>
+            <column name="genre_id">3</column>
+            <column name="auth_id">8</column>
+            <column name="name">Mistakes were made</column>
+            <column name="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam feugiat scelerisque urna, vitae faucibus eros lobortis non. Fusce viverra quam ante, sit amet laoreet lacus volutpat quis. Ut eleifend massa vel dui efficitur placerat. Cras nec tortor sit amet urna auctor consequat. Suspendisse vehicula dignissim felis, vel sollicitudin erat feugiat et. Pellentesque et lectus vel risus tincidunt porta. Cras pulvinar augue finibus sagittis porttitor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut ut nisi suscipit, consectetur nunc eu, auctor sem. Aliquam ac mi et metus vestibulum pretium sit amet cursus dolor. Nam vitae interdum metus. Integer vitae imperdiet ex, vitae porta dui. Praesent vehicula imperdiet orci sit amet semper.</column>
+            <column name="img">mistakes_were_made.jpg</column>
+            <column name="modal">9</column>
+        </table>
+        <table name="books">
+            <column name="book_id">10</column>
+            <column name="genre_id">3</column>
+            <column name="auth_id">9</column>
+            <column name="name">Mind set</column>
+            <column name="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam feugiat scelerisque urna, vitae faucibus eros lobortis non. Fusce viverra quam ante, sit amet laoreet lacus volutpat quis. Ut eleifend massa vel dui efficitur placerat. Cras nec tortor sit amet urna auctor consequat. Suspendisse vehicula dignissim felis, vel sollicitudin erat feugiat et. Pellentesque et lectus vel risus tincidunt porta. Cras pulvinar augue finibus sagittis porttitor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut ut nisi suscipit, consectetur nunc eu, auctor sem. Aliquam ac mi et metus vestibulum pretium sit amet cursus dolor. Nam vitae interdum metus. Integer vitae imperdiet ex, vitae porta dui. Praesent vehicula imperdiet orci sit amet semper.</column>
+            <column name="img">mindset.jpg</column>
+            <column name="modal">10</column>
+        </table>
+        <table name="books">
+            <column name="book_id">11</column>
+            <column name="genre_id">3</column>
+            <column name="auth_id">10</column>
+            <column name="name">The happines advantage</column>
+            <column name="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam feugiat scelerisque urna, vitae faucibus eros lobortis non. Fusce viverra quam ante, sit amet laoreet lacus volutpat quis. Ut eleifend massa vel dui efficitur placerat. Cras nec tortor sit amet urna auctor consequat. Suspendisse vehicula dignissim felis, vel sollicitudin erat feugiat et. Pellentesque et lectus vel risus tincidunt porta. Cras pulvinar augue finibus sagittis porttitor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut ut nisi suscipit, consectetur nunc eu, auctor sem. Aliquam ac mi et metus vestibulum pretium sit amet cursus dolor. Nam vitae interdum metus. Integer vitae imperdiet ex, vitae porta dui. Praesent vehicula imperdiet orci sit amet semper.</column>
+            <column name="img">The_Happines_Advantage.jpg</column>
+            <column name="modal">11</column>
+        </table>
+        <table name="books">
+            <column name="book_id">12</column>
+            <column name="genre_id">4</column>
+            <column name="auth_id">11</column>
+            <column name="name">Military small arms</column>
+            <column name="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam feugiat scelerisque urna, vitae faucibus eros lobortis non. Fusce viverra quam ante, sit amet laoreet lacus volutpat quis. Ut eleifend massa vel dui efficitur placerat. Cras nec tortor sit amet urna auctor consequat. Suspendisse vehicula dignissim felis, vel sollicitudin erat feugiat et. Pellentesque et lectus vel risus tincidunt porta. Cras pulvinar augue finibus sagittis porttitor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut ut nisi suscipit, consectetur nunc eu, auctor sem. Aliquam ac mi et metus vestibulum pretium sit amet cursus dolor. Nam vitae interdum metus. Integer vitae imperdiet ex, vitae porta dui. Praesent vehicula imperdiet orci sit amet semper.</column>
+            <column name="img">Small_arms.jpg</column>
+            <column name="modal">12</column>
+        </table>
+        <table name="books">
+            <column name="book_id">13</column>
+            <column name="genre_id">4</column>
+            <column name="auth_id">12</column>
+            <column name="name">Mauser</column>
+            <column name="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam feugiat scelerisque urna, vitae faucibus eros lobortis non. Fusce viverra quam ante, sit amet laoreet lacus volutpat quis. Ut eleifend massa vel dui efficitur placerat. Cras nec tortor sit amet urna auctor consequat. Suspendisse vehicula dignissim felis, vel sollicitudin erat feugiat et. Pellentesque et lectus vel risus tincidunt porta. Cras pulvinar augue finibus sagittis porttitor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut ut nisi suscipit, consectetur nunc eu, auctor sem. Aliquam ac mi et metus vestibulum pretium sit amet cursus dolor. Nam vitae interdum metus. Integer vitae imperdiet ex, vitae porta dui. Praesent vehicula imperdiet orci sit amet semper.</column>
+            <column name="img">Mauser.jpg</column>
+            <column name="modal">13</column>
+        </table>
+        <table name="books">
+            <column name="book_id">14</column>
+            <column name="genre_id">5</column>
+            <column name="auth_id">13</column>
+            <column name="name">Photoshop for dummies</column>
+            <column name="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam feugiat scelerisque urna, vitae faucibus eros lobortis non. Fusce viverra quam ante, sit amet laoreet lacus volutpat quis. Ut eleifend massa vel dui efficitur placerat. Cras nec tortor sit amet urna auctor consequat. Suspendisse vehicula dignissim felis, vel sollicitudin erat feugiat et. Pellentesque et lectus vel risus tincidunt porta. Cras pulvinar augue finibus sagittis porttitor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut ut nisi suscipit, consectetur nunc eu, auctor sem. Aliquam ac mi et metus vestibulum pretium sit amet cursus dolor. Nam vitae interdum metus. Integer vitae imperdiet ex, vitae porta dui. Praesent vehicula imperdiet orci sit amet semper.</column>
+            <column name="img">Photoshop_for_Dumm.jpg</column>
+            <column name="modal">14</column>
+        </table>
+        <table name="books">
+            <column name="book_id">15</column>
+            <column name="genre_id">5</column>
+            <column name="auth_id">14</column>
+            <column name="name">Autocad 2002</column>
+            <column name="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam feugiat scelerisque urna, vitae faucibus eros lobortis non. Fusce viverra quam ante, sit amet laoreet lacus volutpat quis. Ut eleifend massa vel dui efficitur placerat. Cras nec tortor sit amet urna auctor consequat. Suspendisse vehicula dignissim felis, vel sollicitudin erat feugiat et. Pellentesque et lectus vel risus tincidunt porta. Cras pulvinar augue finibus sagittis porttitor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut ut nisi suscipit, consectetur nunc eu, auctor sem. Aliquam ac mi et metus vestibulum pretium sit amet cursus dolor. Nam vitae interdum metus. Integer vitae imperdiet ex, vitae porta dui. Praesent vehicula imperdiet orci sit amet semper.</column>
+            <column name="img">Autocad_2002.jpg</column>
+            <column name="modal">15</column>
+        </table>
+        <table name="books">
+            <column name="book_id">16</column>
+            <column name="genre_id">5</column>
+            <column name="auth_id">15</column>
+            <column name="name">Corel draw</column>
+            <column name="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam feugiat scelerisque urna, vitae faucibus eros lobortis non. Fusce viverra quam ante, sit amet laoreet lacus volutpat quis. Ut eleifend massa vel dui efficitur placerat. Cras nec tortor sit amet urna auctor consequat. Suspendisse vehicula dignissim felis, vel sollicitudin erat feugiat et. Pellentesque et lectus vel risus tincidunt porta. Cras pulvinar augue finibus sagittis porttitor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut ut nisi suscipit, consectetur nunc eu, auctor sem. Aliquam ac mi et metus vestibulum pretium sit amet cursus dolor. Nam vitae interdum metus. Integer vitae imperdiet ex, vitae porta dui. Praesent vehicula imperdiet orci sit amet semper.</column>
+            <column name="img">Coral_Draw.jpg</column>
+            <column name="modal">16</column>
+        </table>
+        <table name="books">
+            <column name="book_id">17</column>
+            <column name="genre_id">6</column>
+            <column name="auth_id">16</column>
+            <column name="name">The bachman books</column>
+            <column name="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam feugiat scelerisque urna, vitae faucibus eros lobortis non. Fusce viverra quam ante, sit amet laoreet lacus volutpat quis. Ut eleifend massa vel dui efficitur placerat. Cras nec tortor sit amet urna auctor consequat. Suspendisse vehicula dignissim felis, vel sollicitudin erat feugiat et. Pellentesque et lectus vel risus tincidunt porta. Cras pulvinar augue finibus sagittis porttitor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut ut nisi suscipit, consectetur nunc eu, auctor sem. Aliquam ac mi et metus vestibulum pretium sit amet cursus dolor. Nam vitae interdum metus. Integer vitae imperdiet ex, vitae porta dui. Praesent vehicula imperdiet orci sit amet semper.</column>
+            <column name="img">Bachman_books.jpg</column>
+            <column name="modal">17</column>
+        </table>
+        <table name="books">
+            <column name="book_id">18</column>
+            <column name="genre_id">6</column>
+            <column name="auth_id">16</column>
+            <column name="name">The eyes of the Dragon</column>
+            <column name="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam feugiat scelerisque urna, vitae faucibus eros lobortis non. Fusce viverra quam ante, sit amet laoreet lacus volutpat quis. Ut eleifend massa vel dui efficitur placerat. Cras nec tortor sit amet urna auctor consequat. Suspendisse vehicula dignissim felis, vel sollicitudin erat feugiat et. Pellentesque et lectus vel risus tincidunt porta. Cras pulvinar augue finibus sagittis porttitor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut ut nisi suscipit, consectetur nunc eu, auctor sem. Aliquam ac mi et metus vestibulum pretium sit amet cursus dolor. Nam vitae interdum metus. Integer vitae imperdiet ex, vitae porta dui. Praesent vehicula imperdiet orci sit amet semper.</column>
+            <column name="img">The_eyes_of_dragons.jpg</column>
+            <column name="modal">18</column>
+        </table>
+        <table name="books">
+            <column name="book_id">19</column>
+            <column name="genre_id">6</column>
+            <column name="auth_id">16</column>
+            <column name="name">The outsider</column>
+            <column name="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam feugiat scelerisque urna, vitae faucibus eros lobortis non. Fusce viverra quam ante, sit amet laoreet lacus volutpat quis. Ut eleifend massa vel dui efficitur placerat. Cras nec tortor sit amet urna auctor consequat. Suspendisse vehicula dignissim felis, vel sollicitudin erat feugiat et. Pellentesque et lectus vel risus tincidunt porta. Cras pulvinar augue finibus sagittis porttitor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut ut nisi suscipit, consectetur nunc eu, auctor sem. Aliquam ac mi et metus vestibulum pretium sit amet cursus dolor. Nam vitae interdum metus. Integer vitae imperdiet ex, vitae porta dui. Praesent vehicula imperdiet orci sit amet semper.</column>
+            <column name="img">outsider.jpg</column>
+            <column name="modal">19</column>
+        </table>
+        <table name="books">
+            <column name="book_id">20</column>
+            <column name="genre_id">7</column>
+            <column name="auth_id">17</column>
+            <column name="name">Imperium</column>
+            <column name="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam feugiat scelerisque urna, vitae faucibus eros lobortis non. Fusce viverra quam ante, sit amet laoreet lacus volutpat quis. Ut eleifend massa vel dui efficitur placerat. Cras nec tortor sit amet urna auctor consequat. Suspendisse vehicula dignissim felis, vel sollicitudin erat feugiat et. Pellentesque et lectus vel risus tincidunt porta. Cras pulvinar augue finibus sagittis porttitor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut ut nisi suscipit, consectetur nunc eu, auctor sem. Aliquam ac mi et metus vestibulum pretium sit amet cursus dolor. Nam vitae interdum metus. Integer vitae imperdiet ex, vitae porta dui. Praesent vehicula imperdiet orci sit amet semper.</column>
+            <column name="img">Imperium.jpg</column>
+            <column name="modal">20</column>
+        </table>
+        <table name="books">
+            <column name="book_id">21</column>
+            <column name="genre_id">7</column>
+            <column name="auth_id">17</column>
+            <column name="name">The ghost</column>
+            <column name="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam feugiat scelerisque urna, vitae faucibus eros lobortis non. Fusce viverra quam ante, sit amet laoreet lacus volutpat quis. Ut eleifend massa vel dui efficitur placerat. Cras nec tortor sit amet urna auctor consequat. Suspendisse vehicula dignissim felis, vel sollicitudin erat feugiat et. Pellentesque et lectus vel risus tincidunt porta. Cras pulvinar augue finibus sagittis porttitor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut ut nisi suscipit, consectetur nunc eu, auctor sem. Aliquam ac mi et metus vestibulum pretium sit amet cursus dolor. Nam vitae interdum metus. Integer vitae imperdiet ex, vitae porta dui. Praesent vehicula imperdiet orci sit amet semper.</column>
+            <column name="img">Ghost.jpg</column>
+            <column name="modal">21</column>
+        </table>
+        <table name="books">
+            <column name="book_id">22</column>
+            <column name="genre_id">7</column>
+            <column name="auth_id">17</column>
+            <column name="name">Conspirata</column>
+            <column name="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam feugiat scelerisque urna, vitae faucibus eros lobortis non. Fusce viverra quam ante, sit amet laoreet lacus volutpat quis. Ut eleifend massa vel dui efficitur placerat. Cras nec tortor sit amet urna auctor consequat. Suspendisse vehicula dignissim felis, vel sollicitudin erat feugiat et. Pellentesque et lectus vel risus tincidunt porta. Cras pulvinar augue finibus sagittis porttitor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut ut nisi suscipit, consectetur nunc eu, auctor sem. Aliquam ac mi et metus vestibulum pretium sit amet cursus dolor. Nam vitae interdum metus. Integer vitae imperdiet ex, vitae porta dui. Praesent vehicula imperdiet orci sit amet semper.</column>
+            <column name="img">Conspirata.jpg</column>
+            <column name="modal">22</column>
+        </table>
+        <table name="books">
+            <column name="book_id">23</column>
+            <column name="genre_id">7</column>
+            <column name="auth_id">18</column>
+            <column name="name">The killer Angels</column>
+            <column name="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam feugiat scelerisque urna, vitae faucibus eros lobortis non. Fusce viverra quam ante, sit amet laoreet lacus volutpat quis. Ut eleifend massa vel dui efficitur placerat. Cras nec tortor sit amet urna auctor consequat. Suspendisse vehicula dignissim felis, vel sollicitudin erat feugiat et. Pellentesque et lectus vel risus tincidunt porta. Cras pulvinar augue finibus sagittis porttitor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut ut nisi suscipit, consectetur nunc eu, auctor sem. Aliquam ac mi et metus vestibulum pretium sit amet cursus dolor. Nam vitae interdum metus. Integer vitae imperdiet ex, vitae porta dui. Praesent vehicula imperdiet orci sit amet semper.</column>
+            <column name="img">The_killer_angels.jpg</column>
+            <column name="modal">23</column>
+        </table>
+        <table name="books">
+            <column name="book_id">24</column>
+            <column name="genre_id">1</column>
+            <column name="auth_id">19</column>
+            <column name="name">PHP &amp; MySQL</column>
+            <column name="description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam feugiat scelerisque urna, vitae faucibus eros lobortis non. Fusce viverra quam ante, sit amet laoreet lacus volutpat quis. Ut eleifend massa vel dui efficitur placerat. Cras nec tortor sit amet urna auctor consequat. Suspendisse vehicula dignissim felis, vel sollicitudin erat feugiat et. Pellentesque et lectus vel risus tincidunt porta. Cras pulvinar augue finibus sagittis porttitor. Interdum et malesuada fames ac ante ipsum primis in faucibus. Ut ut nisi suscipit, consectetur nunc eu, auctor sem. Aliquam ac mi et metus vestibulum pretium sit amet cursus dolor. Nam vitae interdum metus. Integer vitae imperdiet ex, vitae porta dui. Praesent vehicula imperdiet orci sit amet semper.</column>
+            <column name="img">PHP_MySQL_the_missing_manual.png</column>
+            <column name="modal">24</column>
+        </table>
+        <!-- Таблица genre -->
+        <table name="genre">
+            <column name="genre_id">1</column>
+            <column name="name">Web-development</column>
+        </table>
+        <table name="genre">
+            <column name="genre_id">2</column>
+            <column name="name">Electronics</column>
+        </table>
+        <table name="genre">
+            <column name="genre_id">3</column>
+            <column name="name">Phihology</column>
+        </table>
+        <table name="genre">
+            <column name="genre_id">4</column>
+            <column name="name">Weapons</column>
+        </table>
+        <table name="genre">
+            <column name="genre_id">5</column>
+            <column name="name">Graphic design</column>
+        </table>
+        <table name="genre">
+            <column name="genre_id">6</column>
+            <column name="name">Novels</column>
+        </table>
+        <table name="genre">
+            <column name="genre_id">7</column>
+            <column name="name">Historical novels</column>
+        </table>
+    </database>
+</pma_xml_export>
